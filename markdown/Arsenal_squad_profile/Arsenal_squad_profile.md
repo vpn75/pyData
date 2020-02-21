@@ -1,3 +1,18 @@
+<style>
+.vega-actions a {
+margin-right: 12px;
+color: #757575;
+font-weight: normal;
+font-size: 13px;
+}
+.error {
+color: red;
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm//vega@3.3.1"></script>
+<script src="https://cdn.jsdelivr.net/npm//vega-lite@2.4.3"></script>
+<script src="https://cdn.jsdelivr.net/npm//vega-embed@3.11"></script>
+
 # Arsenal - Squad Profile Analysis
 
 This is an analytics exercise to look at distribution of minutes across the different age-groups in the squad. 
@@ -100,19 +115,6 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -329,19 +331,7 @@ df.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -425,19 +415,7 @@ tdf.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -533,19 +511,7 @@ tdf
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -913,13 +879,25 @@ final_viz.properties(
 ```
 
 
-![png](output_27_0.png)
+<div id="vis"></div>
+  <script>
+(function(vegaEmbed) {
+var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "layer": [{"mark": {"type": "rect", "fill": "green"}, "encoding": {"opacity": {"value": 0.01}, "x": {"value": 266}, "x2": {"value": 468}}}, {"mark": {"type": "circle", "size": 120}, "encoding": {"color": {"type": "nominal", "field": "position", "scale": {"domain": ["Goalie", "Defense", "Midfield", "Forward"]}, "title": "Position"}, "x": {"type": "quantitative", "axis": {"values": [16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36]}, "field": "age", "scale": {"domain": [16, 34]}, "title": "Player Age"}, "y": {"type": "quantitative", "axis": {"format": "%", "title": "% played of max league minutes", "values": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}, "field": "mp_pct", "scale": {"domain": [0, 1.01]}}}}, {"mark": {"type": "text", "align": "left", "baseline": "middle", "dx": 10, "font": "Menlo"}, "encoding": {"text": {"type": "nominal", "field": "lname"}, "x": {"type": "quantitative", "axis": {"values": [16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36]}, "field": "age", "scale": {"domain": [16, 34]}, "title": "Player Age"}, "y": {"type": "quantitative", "axis": {"format": "%", "title": "% played of max league minutes", "values": [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]}, "field": "mp_pct", "scale": {"domain": [0, 1.01]}}}}], "data": {"name": "data-92e15a500a04a9596cba551744fecce8"}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-92e15a500a04a9596cba551744fecce8": [{"player": "B. Leno", "age": 27, "position": "Goalie", "minutes": 2340, "appearances": 26, "mp_pct": 1.0, "lname": "Leno"}, {"player": "Beller\u00edn", "age": 24, "position": "Defense", "minutes": 533, "appearances": 6, "mp_pct": 0.23, "lname": "Beller\u00edn"}, {"player": "K. Tierney", "age": 22, "position": "Defense", "minutes": 299, "appearances": 5, "mp_pct": 0.13, "lname": "Tierney"}, {"player": "Sokratis", "age": 31, "position": "Defense", "minutes": 1607, "appearances": 18, "mp_pct": 0.69, "lname": "Sokratis"}, {"player": "R. Holding", "age": 24, "position": "Defense", "minutes": 86, "appearances": 2, "mp_pct": 0.04, "lname": "Holding"}, {"player": "S. Mustafi", "age": 27, "position": "Defense", "minutes": 530, "appearances": 7, "mp_pct": 0.23, "lname": "Mustafi"}, {"player": "C. Chambers", "age": 25, "position": "Defense", "minutes": 1103, "appearances": 14, "mp_pct": 0.47, "lname": "Chambers"}, {"player": "David Luiz", "age": 32, "position": "Defense", "minutes": 2006, "appearances": 23, "mp_pct": 0.86, "lname": "Luiz"}, {"player": "S. Kola\u0161inac", "age": 26, "position": "Defense", "minutes": 1089, "appearances": 16, "mp_pct": 0.47, "lname": "Kola\u0161inac"}, {"player": "Dani Ceballos", "age": 23, "position": "Midfield", "minutes": 745, "appearances": 12, "mp_pct": 0.32, "lname": "Ceballos"}, {"player": "M. \u00d6zil", "age": 31, "position": "Midfield", "minutes": 1278, "appearances": 16, "mp_pct": 0.55, "lname": "\u00d6zil"}, {"player": "L. Torreira", "age": 24, "position": "Midfield", "minutes": 1357, "appearances": 23, "mp_pct": 0.58, "lname": "Torreira"}, {"player": "A. Maitland-Niles", "age": 22, "position": "Defense", "minutes": 1211, "appearances": 14, "mp_pct": 0.52, "lname": "Maitland-Niles"}, {"player": "J. Willock", "age": 20, "position": "Midfield", "minutes": 576, "appearances": 19, "mp_pct": 0.25, "lname": "Willock"}, {"player": "M. Guendouzi", "age": 20, "position": "Midfield", "minutes": 1582, "appearances": 21, "mp_pct": 0.68, "lname": "Guendouzi"}, {"player": "G. Xhaka", "age": 27, "position": "Midfield", "minutes": 1728, "appearances": 20, "mp_pct": 0.74, "lname": "Xhaka"}, {"player": "B. Saka", "age": 18, "position": "Midfield", "minutes": 1014, "appearances": 16, "mp_pct": 0.43, "lname": "Saka"}, {"player": "A. Lacazette", "age": 28, "position": "Forward", "minutes": 1287, "appearances": 19, "mp_pct": 0.55, "lname": "Lacazette"}, {"player": "P. Aubameyang", "age": 30, "position": "Forward", "minutes": 2125, "appearances": 24, "mp_pct": 0.91, "lname": "Aubameyang"}, {"player": "N. P\u00e9p\u00e9", "age": 24, "position": "Forward", "minutes": 1432, "appearances": 22, "mp_pct": 0.61, "lname": "P\u00e9p\u00e9"}, {"player": "R. Nelson", "age": 20, "position": "Forward", "minutes": 440, "appearances": 10, "mp_pct": 0.19, "lname": "Nelson"}, {"player": "E. Nketiah", "age": 20, "position": "Forward", "minutes": 102, "appearances": 3, "mp_pct": 0.04, "lname": "Nketiah"}, {"player": "Martinelli", "age": 18, "position": "Forward", "minutes": 656, "appearances": 14, "mp_pct": 0.28, "lname": "Martinelli"}]}};
+var embedOpt = {"mode": "vega-lite"};
 
-
-
-```python
-final_viz.save('./images/afc_squad_profile.png')
-```
+function showError(el, error){
+el.innerHTML = ('<div class="error" style="color:red;">'
++ '<p>JavaScript Error: ' + error.message + '</p>'
++ "<p>This usually means there's a typo in your chart specification. "
++ "See the javascript console for the full traceback.</p>"
++ '</div>');
+throw error;
+}
+const el = document.getElementById('vis');
+vegaEmbed("#vis", spec, embedOpt)
+  .catch(error => showError(el, error));
+})(vegaEmbed);
+</script>
 
 ## Thoughts
 
@@ -980,12 +958,25 @@ chart.properties(
 ).display(renderer='svg')
 
 ```
+<div id="vis"></div>
+<script>
+(function(vegaEmbed) {
+var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-549f4a1ea1f81d17ce047298969b09fc"}, "mark": {"type": "bar", "color": "firebrick"}, "encoding": {"tooltip": [{"type": "nominal", "field": "player"}, {"type": "quantitative", "field": "age"}, {"type": "quantitative", "field": "appearances"}, {"type": "quantitative", "field": "minutes"}], "x": {"type": "quantitative", "field": "minutes"}, "y": {"type": "nominal", "field": "player", "sort": {"field": "minutes", "order": "descending"}}}, "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-549f4a1ea1f81d17ce047298969b09fc": [{"player": "B. Leno", "age": 27, "position": "Goalie", "minutes": 2340, "appearances": 26, "mp_pct": 1.0}, {"player": "Beller\u00edn", "age": 24, "position": "Defense", "minutes": 533, "appearances": 6, "mp_pct": 0.23}, {"player": "K. Tierney", "age": 22, "position": "Defense", "minutes": 299, "appearances": 5, "mp_pct": 0.13}, {"player": "Sokratis", "age": 31, "position": "Defense", "minutes": 1607, "appearances": 18, "mp_pct": 0.69}, {"player": "R. Holding", "age": 24, "position": "Defense", "minutes": 86, "appearances": 2, "mp_pct": 0.04}, {"player": "S. Mustafi", "age": 27, "position": "Defense", "minutes": 530, "appearances": 7, "mp_pct": 0.23}, {"player": "C. Chambers", "age": 25, "position": "Defense", "minutes": 1103, "appearances": 14, "mp_pct": 0.47}, {"player": "David Luiz", "age": 32, "position": "Defense", "minutes": 2006, "appearances": 23, "mp_pct": 0.86}, {"player": "S. Kola\u0161inac", "age": 26, "position": "Defense", "minutes": 1089, "appearances": 16, "mp_pct": 0.47}, {"player": "Dani Ceballos", "age": 23, "position": "Midfield", "minutes": 745, "appearances": 12, "mp_pct": 0.32}, {"player": "M. \u00d6zil", "age": 31, "position": "Midfield", "minutes": 1278, "appearances": 16, "mp_pct": 0.55}, {"player": "L. Torreira", "age": 24, "position": "Midfield", "minutes": 1357, "appearances": 23, "mp_pct": 0.58}, {"player": "A. Maitland-Niles", "age": 22, "position": "Defense", "minutes": 1211, "appearances": 14, "mp_pct": 0.52}, {"player": "J. Willock", "age": 20, "position": "Midfield", "minutes": 576, "appearances": 19, "mp_pct": 0.25}, {"player": "M. Guendouzi", "age": 20, "position": "Midfield", "minutes": 1582, "appearances": 21, "mp_pct": 0.68}, {"player": "G. Xhaka", "age": 27, "position": "Midfield", "minutes": 1728, "appearances": 20, "mp_pct": 0.74}, {"player": "B. Saka", "age": 18, "position": "Midfield", "minutes": 1014, "appearances": 16, "mp_pct": 0.43}, {"player": "A. Lacazette", "age": 28, "position": "Forward", "minutes": 1287, "appearances": 19, "mp_pct": 0.55}, {"player": "P. Aubameyang", "age": 30, "position": "Forward", "minutes": 2125, "appearances": 24, "mp_pct": 0.91}, {"player": "N. P\u00e9p\u00e9", "age": 24, "position": "Forward", "minutes": 1432, "appearances": 22, "mp_pct": 0.61}, {"player": "R. Nelson", "age": 20, "position": "Forward", "minutes": 440, "appearances": 10, "mp_pct": 0.19}, {"player": "E. Nketiah", "age": 20, "position": "Forward", "minutes": 102, "appearances": 3, "mp_pct": 0.04}, {"player": "Martinelli", "age": 18, "position": "Forward", "minutes": 656, "appearances": 14, "mp_pct": 0.28}]}};
+var embedOpt = {"mode": "vega-lite"};
 
-
-
-
-![png](output_32_0.png)
-
+function showError(el, error){
+el.innerHTML = ('<div class="error" style="color:red;">'
++ '<p>JavaScript Error: ' + error.message + '</p>'
++ "<p>This usually means there's a typo in your chart specification. "
++ "See the javascript console for the full traceback.</p>"
++ '</div>');
+throw error;
+}
+const el = document.getElementById('vis');
+vegaEmbed("#vis", spec, embedOpt)
+.catch(error => showError(el, error));
+})(vegaEmbed);
+</script>
 
 
 It could also be interesting to see the distribution of minutes across different age-groups in the squad.
@@ -1015,19 +1006,6 @@ df2.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1123,9 +1101,26 @@ alt.Chart(df2, title='Minutes distribution by age group').mark_bar().encode(
 
 ```
 
+<div id="vis"></div>
+<script>
+(function(vegaEmbed) {
+var spec = {"config": {"view": {"width": 400, "height": 300}, "mark": {"tooltip": null}}, "data": {"name": "data-42f0fb27cade2c46fca14ccb96f56799"}, "mark": "bar", "encoding": {"color": {"type": "nominal", "field": "age_group", "legend": {"title": "Age Group"}, "scale": {"domain": ["Youth", "Prime", "Senior"]}}, "x": {"type": "quantitative", "field": "total_minutes", "title": "Total Minutes Played"}, "y": {"type": "ordinal", "field": "position", "sort": ["Goalie", "Forward", "Midfield", "Defense"], "title": ""}}, "title": "Minutes distribution by age group", "transform": [{"aggregate": [{"op": "sum", "field": "minutes", "as": "total_minutes"}], "groupby": ["position", "age_group"]}], "$schema": "https://vega.github.io/schema/vega-lite/v3.4.0.json", "datasets": {"data-42f0fb27cade2c46fca14ccb96f56799": [{"player": "B. Leno", "age": 27, "position": "Goalie", "minutes": 2340, "appearances": 26, "mp_pct": 1.0, "age_group": "Prime"}, {"player": "Beller\u00edn", "age": 24, "position": "Defense", "minutes": 533, "appearances": 6, "mp_pct": 0.23, "age_group": "Prime"}, {"player": "K. Tierney", "age": 22, "position": "Defense", "minutes": 299, "appearances": 5, "mp_pct": 0.13, "age_group": "Youth"}, {"player": "Sokratis", "age": 31, "position": "Defense", "minutes": 1607, "appearances": 18, "mp_pct": 0.69, "age_group": "Senior"}, {"player": "R. Holding", "age": 24, "position": "Defense", "minutes": 86, "appearances": 2, "mp_pct": 0.04, "age_group": "Prime"}, {"player": "S. Mustafi", "age": 27, "position": "Defense", "minutes": 530, "appearances": 7, "mp_pct": 0.23, "age_group": "Prime"}, {"player": "C. Chambers", "age": 25, "position": "Defense", "minutes": 1103, "appearances": 14, "mp_pct": 0.47, "age_group": "Prime"}, {"player": "David Luiz", "age": 32, "position": "Defense", "minutes": 2006, "appearances": 23, "mp_pct": 0.86, "age_group": "Senior"}, {"player": "S. Kola\u0161inac", "age": 26, "position": "Defense", "minutes": 1089, "appearances": 16, "mp_pct": 0.47, "age_group": "Prime"}, {"player": "Dani Ceballos", "age": 23, "position": "Midfield", "minutes": 745, "appearances": 12, "mp_pct": 0.32, "age_group": "Youth"}, {"player": "M. \u00d6zil", "age": 31, "position": "Midfield", "minutes": 1278, "appearances": 16, "mp_pct": 0.55, "age_group": "Senior"}, {"player": "L. Torreira", "age": 24, "position": "Midfield", "minutes": 1357, "appearances": 23, "mp_pct": 0.58, "age_group": "Prime"}, {"player": "A. Maitland-Niles", "age": 22, "position": "Defense", "minutes": 1211, "appearances": 14, "mp_pct": 0.52, "age_group": "Youth"}, {"player": "J. Willock", "age": 20, "position": "Midfield", "minutes": 576, "appearances": 19, "mp_pct": 0.25, "age_group": "Youth"}, {"player": "M. Guendouzi", "age": 20, "position": "Midfield", "minutes": 1582, "appearances": 21, "mp_pct": 0.68, "age_group": "Youth"}, {"player": "G. Xhaka", "age": 27, "position": "Midfield", "minutes": 1728, "appearances": 20, "mp_pct": 0.74, "age_group": "Prime"}, {"player": "B. Saka", "age": 18, "position": "Midfield", "minutes": 1014, "appearances": 16, "mp_pct": 0.43, "age_group": "Youth"}, {"player": "A. Lacazette", "age": 28, "position": "Forward", "minutes": 1287, "appearances": 19, "mp_pct": 0.55, "age_group": "Prime"}, {"player": "P. Aubameyang", "age": 30, "position": "Forward", "minutes": 2125, "appearances": 24, "mp_pct": 0.91, "age_group": "Prime"}, {"player": "N. P\u00e9p\u00e9", "age": 24, "position": "Forward", "minutes": 1432, "appearances": 22, "mp_pct": 0.61, "age_group": "Prime"}, {"player": "R. Nelson", "age": 20, "position": "Forward", "minutes": 440, "appearances": 10, "mp_pct": 0.19, "age_group": "Youth"}, {"player": "E. Nketiah", "age": 20, "position": "Forward", "minutes": 102, "appearances": 3, "mp_pct": 0.04, "age_group": "Youth"}, {"player": "Martinelli", "age": 18, "position": "Forward", "minutes": 656, "appearances": 14, "mp_pct": 0.28, "age_group": "Youth"}]}};
+var embedOpt = {"mode": "vega-lite"};
 
-![png](output_36_0.png)
+function showError(el, error){
+el.innerHTML = ('<div class="error" style="color:red;">'
++ '<p>JavaScript Error: ' + error.message + '</p>'
++ "<p>This usually means there's a typo in your chart specification. "
++ "See the javascript console for the full traceback.</p>"
++ '</div>');
+throw error;
+}
+const el = document.getElementById('vis');
+vegaEmbed("#vis", spec, embedOpt)
+.catch(error => showError(el, error));
+})(vegaEmbed);
 
+</script>
 
 We can see Arsenal's youth are getting the most run at midfield with the Forward line being led by prime attackers, Aubameyang and Lacazette.
 
